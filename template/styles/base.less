@@ -103,7 +103,7 @@ aside {
  
   h2 {
     text-align: center;
-    color: @oxfordBlue;
+    color: black;
     margin: 15px 0;
   }
  
@@ -124,6 +124,114 @@ aside {
 
 // Desktop media query
 @media only screen and (min-width: 1025px) {
+
+  body {
+    display: grid;
+    grid-template-columns: 190px 1fr 190px;
+    grid-template-rows: 100vh;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  nav {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+    overflow-y: auto;
+
+    border-right: 8px solid @moonDarkGray;
+
+    .navigation-items {
+      padding-top: 30px;
+    }
+
+    .navigation-item a{
+      text-align: left;
+      padding: 6px;
+      padding-left: 40px;
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    grid-row: 1;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  aside {
+    grid-column: 3;
+    grid-row: 1;
+    overflow-y: auto;
+    height: 100%;
+
+    border-left: 8px solid @moonDarkGray;
+
+    h2 {
+      margin: 20px 0 40px;
+      font-size: 22px; 
+    }
+
+    .planets {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px 20px;
+      gap: 30px;
+    }
+
+    .planet img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .hero-section {
+    padding: 40px 50px;
+    min-height: 280px;
+
+    .hero-image {
+      width: 180px;
+      height: 180px;
+      margin-left: 20px;
+      border: 8px solid @oxfordBlue;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.2;
+      padding-left: 20px;
+    }
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 250px);
+    padding: 64px 60px;
+    gap: 80px 120px;
+    flex: 1;
+    justify-content: center;
+
+    .gallery-item {
+      aspect-ratio: 1;
+
+    }
+  }
+
+  footer {
+    padding: 25px 50px;
+    margin-top: auto;
+    border-top: 8px solid @oxfordBlue;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
 }
 
 // Tablet media query
