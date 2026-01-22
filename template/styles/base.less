@@ -138,7 +138,7 @@ aside {
   .hero-section {
     height: 220px;
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 180px 1fr 180px;
     align-items: center;
   }
 
@@ -149,6 +149,8 @@ aside {
     background-position: center;
     justify-self: start;
     margin-left: 50px;
+    border: 8px solid @oxfordBlue;
+    text-align: center;
   }
 
   .hero-section p {
@@ -161,8 +163,44 @@ aside {
     padding: 10%;
   }
 
+  footer{
+    border-top: 10px solid @oxfordBlue;
+    padding-left: 8%;
+    }
 
-}
+  footer p{
+    font-size: 18px;
+  }
+  footer img{
+    width: 100px;
+    height: 100px;
+  }
+
+  aside{
+    border-left: 8px solid @moonDarkGray;
+
+    .planets{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 15px 20px;
+    }
+      
+    .planet img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+  }
+
+  aside h2{
+    color:black;
+  }
+
+  
+  }
+
 
 // Mobile media query
 @media only screen and (max-width: 767px) {
