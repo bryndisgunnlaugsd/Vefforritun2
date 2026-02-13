@@ -1,6 +1,6 @@
 class FritosObject {
     constructor(elements) {
-        this.elements = Array.from(document.querySelectorAll(selector));    
+        this.elements = Array.from(elements).filter(el => el !== undefined);  
     }
 
     hide(){
