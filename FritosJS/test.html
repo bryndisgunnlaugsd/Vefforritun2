@@ -5,18 +5,28 @@
     <title>Fritos Test</title>
 </head>
 <body>
-    <div id="my-form">
-        <input type="text" name="username">
-        <input type="password" name="password">
-    </div>
+    <form>
+        <div class="form-group">
+            <input type="text" name="input-1" />
+        </div>
+        <div class="form-group">
+            <input type="text" name="input-2" />
+        </div>
+    </form>
 
     <!-- Load your fritos library -->
     <script src="fritos.js"></script>
     
     <!-- Test your code -->
     <script>
-        // Your test code will go here
-        console.log('Testing fritos...');
+        console.log('BEFORE raise():');
+        console.log(document.body.innerHTML);
+        
+        // Test raise
+        fritos('input[type="text"]').raise(1);
+        
+        console.log('AFTER raise(1):');
+        console.log(document.body.innerHTML);
     </script>
 </body>
 </html>
