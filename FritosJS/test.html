@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fritos Test</title>
+    <title>Fritos Test - Raise</title>
 </head>
 <body>
     <form>
@@ -14,19 +14,16 @@
         </div>
     </form>
 
-    <!-- Load your fritos library -->
     <script src="fritos.js"></script>
     
-    <!-- Test your code -->
-    <script>
-        console.log('BEFORE raise():');
-        console.log(document.body.innerHTML);
-        
-        // Test raise
-        fritos('input[type="text"]').raise(1);
-        
-        console.log('AFTER raise(1):');
-        console.log(document.body.innerHTML);
-    </script>
+<script>
+    console.log('BEFORE raise(2):');
+    console.log(document.body.innerHTML);
+    
+    fritos('input[type="text"]').raise(2);
+    
+    console.log('\nAFTER raise(2):');
+    console.log(document.body.innerHTML);  // ← Log the whole body, not just form
+</script>
 </body>
 </html>
