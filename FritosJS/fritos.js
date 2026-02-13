@@ -1,5 +1,5 @@
 class FritosObject {
-    constructor(selector) {
+    constructor(elements) {
         this.elements = Array.from(document.querySelectorAll(selector));    
     }
 
@@ -51,3 +51,7 @@ class FritosObject {
         return
     }
 }
+const fritos = (selector) => {
+    const elements = document.querySelectorAll(selector);
+    return new FritosObject(elements);
+};
