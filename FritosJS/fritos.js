@@ -15,14 +15,18 @@ class FritosObject {
         return
     }
 
+
+    //TODO: Bryndís
     animate(){
         return
     }
 
+    //TODO: Bryndís
     find(){
         return
     }
 
+    //TODO: Bryndís
     onEvent(){
         return
     }
