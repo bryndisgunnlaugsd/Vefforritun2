@@ -21,14 +21,27 @@ class FritosObject {
         return
     }
 
-    //TODO: Bryndís
-    find(){
-        return
+    find(selector) {
+        if (!selector) {
+            return new FritosObject([]);
+        }
+        var matched = [];
+        this.elements.forEach(function(el) {
+            var children = el.querySelectorAll(selector);
+            children.forEach(function(child) {
+                if (matched.indexOf(child) === -1) {
+                    matched.push(child);
+                }
+            });
+        });
+        return new FritosObject(matched);
     }
 
-    //TODO: Bryndís
-    onEvent(){
-        return
+    onEvent(eventType, eventFunction) {
+        this.elements.forEach(function(el) {
+            el.addEventListener(eventType, eventFunction);
+        });
+        return this;
     }
 
     remoteCall(){
