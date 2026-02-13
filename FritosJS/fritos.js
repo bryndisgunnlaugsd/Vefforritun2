@@ -37,8 +37,9 @@ class FritosObject {
 
             while(curr){
                 if(selector){
-                    if(curr.matches(selector))
+                    if(curr.matches(selector)){
                         ancestors.push(curr)
+                    }
                 }
                 else{
                     ancestors.push(curr)
@@ -67,10 +68,6 @@ class FritosObject {
         return
     }
 
-    remoteCall(){
-        return
-    }
-
     validation(){
         return
     }
@@ -95,3 +92,43 @@ const fritos = (selector) => {
     const elements = document.querySelectorAll(selector);
     return new FritosObject(elements);
 };
+
+fritos.remoteCall = function(url, options) {
+    const method = options.method || 'GET';
+    const timeout = (options.timeout || 45) * 1000;  // milliseconds
+    const headers = options.headers || {};
+    const body = options.body;
+    const onSuccess = options.onSuccess;
+    const onError = options.onError;
+    const controller = new AbortController();
+
+    const timeoutId = setTimeout(() => {
+        controller.abort(); 
+    }, timeout);
+
+    fetch(url, {
+        method: method,
+        headers: headers,
+        body: body,
+        signal: controller.signal 
+    })
+
+    .then(response => {
+        clearTimeout(timeoutId); 
+        return response.json();    
+    })
+    
+    .then(data => {
+        if (onSuccess) {
+            onSuccess(data);
+        }
+    })
+
+    .catch(error => {
+        clearTimeout(timeoutId);
+        if (onError) {
+            onError(error);
+        }
+    });
+
+}
