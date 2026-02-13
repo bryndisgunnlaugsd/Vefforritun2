@@ -4,15 +4,51 @@ class FritosObject {
     }
 
     hide(){
-        return
+        for(let i = 0; i < this.elements.length; i++){
+            this.elements[i].style.display = "none";
+        }
+        return this
     }
 
-    parent(){
-        return
+    parent(selector){
+        const parents = []
+
+        for(let i = 0; i < this.elements.length; i++){
+            const parentEl = this.elements[i].parentElement;
+            if(selector){
+                if(parentEl && parentEl.matches(selector)){
+                    parents.push(parentEl)
+                }
+            }
+            else{
+                if(parentEl){
+                    parents.push(parentEl)
+                }
+            }
+        }
+
+        return new FritosObject(parents)
     }
 
-    ancestor(){
-        return
+    ancestor(selector){
+        const ancestors = []
+        for(let i = 0; i < this.elements.length;i++){
+            let curr = this.elements[i].parentElement
+
+            while(curr){
+                if(selector){
+                    if(curr.matches(selector))
+                        ancestors.push(curr)
+                }
+                else{
+                    ancestors.push(curr)
+                }
+
+                curr = curr.parentElement
+
+            }
+        }
+        return new FritosObject(ancestors)
     }
 
 
