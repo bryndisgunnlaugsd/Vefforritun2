@@ -58,14 +58,27 @@ class FritosObject {
         return
     }
 
-    //TODO: Bryndís
-    find(){
-        return
+    find(selector) {
+        if (!selector) {
+            return new FritosObject([]);
+        }
+        var matched = [];
+        this.elements.forEach(function(el) {
+            var children = el.querySelectorAll(selector);
+            children.forEach(function(child) {
+                if (matched.indexOf(child) === -1) {
+                    matched.push(child);
+                }
+            });
+        });
+        return new FritosObject(matched);
     }
 
-    //TODO: Bryndís
-    onEvent(){
-        return
+    onEvent(eventType, eventFunction) {
+        this.elements.forEach(function(el) {
+            el.addEventListener(eventType, eventFunction);
+        });
+        return this;
     }
 
     validation(){
@@ -76,16 +89,35 @@ class FritosObject {
         return
     }
 
-    raise(){
-        return
+    raise(level){
+        for(let i = 0; i < this.elements.length; i++) {
+            const element = this.elements[i];
+            for(let j = 0; j < level; j++) {
+                const parent = element.parentNode;
+                const grandparent = parent.parentNode;
+                grandparent.insertBefore(element, parent);
+            }
+        }
+        return this;
     }
 
-    attr(){
-        return
+    attrs(attr_name, value){
+        for(let i = 0; i < this.elements.length; i++) {
+            this.elements[i].setAttribute(attr_name, value)
+        }
+        return this;
     }
 
-    val(){
-        return
+    val(value){
+        if (value === undefined) {
+            return this.elements[0].value
+        }else {
+            for (let i = 0; i < this.elements.length; i++) {
+                this.elements[i].value = value
+            }
+            return this;
+        }
+
     }
 }
 const fritos = (selector) => {
