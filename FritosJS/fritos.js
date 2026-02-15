@@ -3,12 +3,14 @@ class FritosObject {
         this.elements = Array.from(elements).filter(el => el !== undefined);  
     }
 
+
     hide(){
         for(let i = 0; i < this.elements.length; i++){
             this.elements[i].style.display = "none";
         }
         return this
     }
+
 
     parent(selector){
         const parents = []
@@ -30,6 +32,7 @@ class FritosObject {
         return new FritosObject(parents)
     }
 
+
     ancestor(selector){
         const ancestors = []
         for(let i = 0; i < this.elements.length;i++){
@@ -49,6 +52,7 @@ class FritosObject {
         }
         return new FritosObject(ancestors)
     }
+
 
     animate(cssProp, animationOpt) {
         var opts = animationOpt || {};
@@ -85,6 +89,7 @@ class FritosObject {
         return new FritosObject(matched);
     }
 
+
     onEvent(eventType, eventFunction) {
         this.elements.forEach(function(el) {
             el.addEventListener(eventType, eventFunction);
@@ -92,14 +97,47 @@ class FritosObject {
         return this;
     }
 
-    validation(){
-        return
+
+    validation(validationProperties) {
+        var result = {};
+        var element = this.elements[0];
+        if (!element) {
+            return result;
+        }
+
+        for (var fieldName in validationProperties) {
+            var input = element.querySelector('[name="' + fieldName + '"]');
+            if (!input) {
+                continue;
+            }
+
+            var rules = validationProperties[fieldName];
+            for (var i = 0; i < rules.length; i++) {
+                var rule = rules[i];
+                if (!rule.valid(input.value, element)) {
+                    result[fieldName] = rule.message;
+                    break;
+                }
+            }
+        }
+        return result;
     }
 
-    prune(){
-        return
+
+    prune() {
+        for (let i = 0; i < this.elements.length; i++) {
+            const element = this.elements[i];
+            const parent = element.parentNode;
+            const grandparent = parent.parentNode;
+            if (grandparent) {
+                grandparent.insertBefore(element, parent);
+                parent.remove();
+            }
+        }
+        return this;
     }
 
+    
     raise(level){
         for(let i = 0; i < this.elements.length; i++) {
             const element = this.elements[i];
@@ -112,12 +150,14 @@ class FritosObject {
         return this;
     }
 
+
     attrs(attr_name, value){
         for(let i = 0; i < this.elements.length; i++) {
             this.elements[i].setAttribute(attr_name, value)
         }
         return this;
     }
+
 
     val(value){
         if (value === undefined) {
@@ -131,6 +171,7 @@ class FritosObject {
 
     }
 }
+
 const fritos = (selector) => {
     const elements = document.querySelectorAll(selector);
     return new FritosObject(elements);
@@ -173,5 +214,4 @@ fritos.remoteCall = function(url, options) {
             onError(error);
         }
     });
-
 }
