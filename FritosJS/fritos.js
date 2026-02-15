@@ -50,11 +50,24 @@ class FritosObject {
         return new FritosObject(ancestors)
     }
 
-
-    //TODO: Bryndís
-    animate(){
-        return
+    animate(cssProp, animationOpt) {
+        var opts = animationOpt || {};
+    
+        var options = {
+            duration: opts.duration || 0,
+            delay: opts.delay ? parseFloat(opts.delay) * 1000 : 0,
+            easing: opts.easing || 'ease',
+            iterations: opts.iterationCount === 'infinite' ? Infinity : (opts.iterationCount || 1),
+            fill: opts.fillMode || 'none'
+        };
+    
+        this.elements.forEach(function(el) {
+            el.animate([cssProp], options);
+        });
+    
+        return this;
     }
+    
 
     find(selector) {
         if (!selector) {
