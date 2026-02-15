@@ -44,9 +44,7 @@ class FritosObject {
                 else{
                     ancestors.push(curr)
                 }
-
                 curr = curr.parentElement
-
             }
         }
         return new FritosObject(ancestors)
