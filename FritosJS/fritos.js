@@ -138,13 +138,15 @@ class FritosObject {
     }
 
     
-    raise(level){
+    raise(level = 1){
         for(let i = 0; i < this.elements.length; i++) {
             const element = this.elements[i];
             for(let j = 0; j < level; j++) {
                 const parent = element.parentNode;
-                const grandparent = parent.parentNode;
-                grandparent.insertBefore(element, parent);
+                const grandparent = parent?.parentNode;
+                if (grandparent && parent) {
+                    grandparent.insertBefore(element, parent);
+                }
             }
         }
         return this;
@@ -168,7 +170,6 @@ class FritosObject {
             }
             return this;
         }
-
     }
 }
 
