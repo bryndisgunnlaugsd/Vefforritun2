@@ -1,4 +1,4 @@
-import { IndividualInfo } from "./IndividualInfo";
+import { KeyContact } from "./KeyContact";
 
 export type CompanyInfo = {
     phoneNumber: string;
@@ -6,5 +6,5 @@ export type CompanyInfo = {
     email: string;
     address: string;
     website: string;
-    keyContacts: IndividualInfo[];
+    keyContacts: KeyContact[];
 }

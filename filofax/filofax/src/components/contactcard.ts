@@ -2,6 +2,7 @@ import { Contact } from "../types/Contact";
 import { IndividualInfo } from "../types/IndividualInfo";
 import { CompanyInfo } from "../types/CompanyInfo";
 import { ContactType } from "../types/ContactType";
+import { KeyContact } from "../types/KeyContact";
 
 
 export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTMLDivElement{
