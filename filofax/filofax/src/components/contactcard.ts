@@ -41,6 +41,12 @@ export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTM
         const website = document.createElement('p');
         website.textContent = info.website;
 
+        card.appendChild(phoneNumber);
+        card.appendChild(title);
+        card.appendChild(email);
+        card.appendChild(address);
+        card.appendChild(website);
+
     } else {
         const info = contact.info as CompanyInfo;
 
