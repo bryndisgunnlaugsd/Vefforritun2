@@ -8,7 +8,7 @@ function saveContacts(contacts: Contact<IndividualInfo | CompanyInfo>[]) {
     localStorage.setItem('filofax-contacts', JSON.stringify(contacts))
 }
 
-function loadContacts(): Contact<IndividualInfo | CompanyInfo>[] {
+export function loadContacts(): Contact<IndividualInfo | CompanyInfo>[] {
     const stored = localStorage.getItem('filofax-contacts');
 
     if (stored) {
