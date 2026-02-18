@@ -92,19 +92,48 @@ export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTM
 
             const item = document.createElement('div');
             item.className = 'key-contact-item';
-            
-            const name = document.createElement('p');
-            name.textContent = keyContact.name;
-            name.className = 'key-contact-name';
 
-            const email = document.createElement('p');
-            email.textContent = keyContact.email;
+            const kcName = document.createElement('p');
+            kcName.textContent = keyContact.name;
+            kcName.className = 'key-contact-name';
 
-            card.appendChild(name);
-            card.appendChild(email);
+            const kcEmail = document.createElement('p');
+            kcEmail.textContent = keyContact.email;
+            kcEmail.className = 'key-contact-email';
+
+            item.appendChild(kcName);
+            item.appendChild(kcEmail);
+            details.appendChild(item);
             });
-    }
+        }
+    
+    const iconsRow = document.createElement('div');
+    iconsRow.className = 'icons-row';
+
+    const iconSymbols = ['📞', '✉️', '💬', '📅'];
+    iconSymbols.forEach((symbol) => {
+        const btn = document.createElement('button');
+        btn.className = 'icon-btn';
+        btn.textContent = symbol;
+        iconsRow.appendChild(btn);
+    });
+
+    const chevron = document.createElement('button');
+    chevron.className = 'chevron';
+    chevron.textContent = '∨';
+
+    chevron.addEventListener('click', () => {
+        const isHidden = details.classList.contains('hidden');
+        details.classList.toggle('hidden', !isHidden);
+        chevron.textContent = isHidden ? '∧' : '∨';
+    });
+
+    card.appendChild(thumbnail);
+    card.appendChild(name);
+    card.appendChild(type);
+    card.appendChild(details);
+    card.appendChild(iconsRow);
+    card.appendChild(chevron);
 
     return card;
-
 }
