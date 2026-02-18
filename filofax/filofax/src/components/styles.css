@@ -1,0 +1,115 @@
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 32px 24px 20px 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.thumbnail {
+    background-color: #2dd4bf;
+    color: #ffffff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.contact-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 6px 0;
+}
+
+.contact-type {
+    font-size: 15px;
+    font-weight: 400;
+    color: #9ca3af;
+    margin: 0 0 24px 0;
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.detail-item {
+    font-size: 15px;
+    color: #374151;
+    font-weight: 400;
+    margin: 0;
+}
+
+.detail-item a {
+    color: #111827;
+    text-decoration: underline;
+}
+
+.key-contacts-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin: 8px 0 8px 0;
+}
+
+.key-contact-item {
+    margin-bottom: 10px;
+}
+
+.key-contact-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin: 0;
+}
+
+.key-contact-email {
+    font-size: 13px;
+    color: #9ca3af;
+    margin: 0;
+}
+
+.icons-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.icon-btn {
+    background-color: #2dd4bf;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+.chevron {
+    font-size: 16px;
+    color: #9ca3af;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 4px 0;
+    background: none;
+    border: none;
+}
