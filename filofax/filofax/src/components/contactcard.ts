@@ -3,7 +3,7 @@ import { IndividualInfo } from "../types/IndividualInfo";
 import { CompanyInfo } from "../types/CompanyInfo";
 import { ContactType } from "../types/ContactType";
 import { KeyContact } from "../types/KeyContact";
-
+import "./styles.css";
 
 export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTMLDivElement{
     const card = document.createElement('div');
