@@ -47,7 +47,7 @@ export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTM
         address.textContent = info.address;
 
         const website = document.createElement('p');
-        website.className = 'website';
+        website.className = 'detail-item';
         website.textContent = info.website;
 
         details.appendChild(phoneNumber);
@@ -98,7 +98,7 @@ export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTM
             kcName.className = 'key-contact-name';
 
             const kcEmail = document.createElement('p');
-            kcEmail.textContent = keyContact.email;
+            kcEmail.textContent = `<${keyContact.email}>`;
             kcEmail.className = 'key-contact-email';
 
             item.appendChild(kcName);

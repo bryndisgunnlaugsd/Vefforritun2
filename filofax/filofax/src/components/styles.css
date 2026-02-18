@@ -1,8 +1,7 @@
 .card {
     background-color: #ffffff;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 32px 24px 20px 24px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,10 +9,10 @@
 }
 
 .thumbnail {
-    background-color: #2dd4bf;
+    background-color: #20cca2;    ;
     color: #ffffff;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     font-size: 28px;
     font-weight: 700;
@@ -25,16 +24,16 @@
 
 .contact-name {
     font-size: 22px;
-    font-weight: 800;
-    color: #111827;
+    font-weight: 700;
     margin: 0 0 6px 0;
 }
 
 .contact-type {
     font-size: 15px;
-    font-weight: 400;
-    color: #9ca3af;
-    margin: 0 0 24px 0;
+    font-weight: 100;
+    font-family: Garamond, serif;
+    color: #898484;
+    margin: 0 0 24px;
 }
 
 .details {
@@ -45,11 +44,16 @@
     margin-bottom: 24px;
 }
 
+.details.hidden {
+    display: none;
+}
+
 .detail-item {
     font-size: 15px;
-    color: #374151;
+    color: #898484;
     font-weight: 400;
     margin: 0;
+    font-family: Garamond, serif;
 }
 
 .detail-item a {
@@ -60,7 +64,6 @@
 .key-contacts-label {
     font-size: 15px;
     font-weight: 700;
-    color: #111827;
     margin: 8px 0 8px 0;
 }
 
@@ -71,13 +74,15 @@
 .key-contact-name {
     font-size: 14px;
     font-weight: 500;
-    color: #374151;
+    font-family: Garamond, serif;
+    color: #9ca3af;
     margin: 0;
 }
 
 .key-contact-email {
     font-size: 13px;
-    color: #9ca3af;
+    font-family: Garamond, serif;
+    color: #898484;
     margin: 0;
 }
 
@@ -89,9 +94,9 @@
 }
 
 .icon-btn {
-    background-color: #2dd4bf;
-    width: 56px;
-    height: 56px;
+    background-color: #20cca2;
+    width: 48px;
+    height: 48px;
     border-radius: 14px;
     color: #ffffff;
     font-size: 22px;
@@ -104,11 +109,9 @@
 
 .chevron {
     font-size: 16px;
-    color: #9ca3af;
     cursor: pointer;
     display: block;
     text-align: center;
-    width: 100%;
     padding: 4px 0;
     background: none;
     border: none;
