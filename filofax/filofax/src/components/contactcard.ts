@@ -64,7 +64,7 @@ export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTM
 
         const industry = document.createElement('p');
         industry.textContent = info.industry;
-        industry.className = 'industry';    //ATHUGA í CSS
+        industry.className = 'industry';
 
         const email = document.createElement('p');
         email.textContent = info.email;
@@ -106,26 +106,31 @@ export function ContactCard(contact: Contact<IndividualInfo | CompanyInfo>): HTM
             details.appendChild(item);
             });
         }
-    
+
     const iconsRow = document.createElement('div');
     iconsRow.className = 'icons-row';
-
-    const iconSymbols = ['📞', '✉️', '💬', '📅'];
-    iconSymbols.forEach((symbol) => {
+    
+    const iconNames = ['receiver', 'mail', 'commenting', 'calendar'];
+    iconNames.forEach((iconName) => {
         const btn = document.createElement('button');
         btn.className = 'icon-btn';
-        btn.textContent = symbol;
+            
+        const iconWrapper = document.createElement('span');
+        iconWrapper.className = 'icon-wrapper';
+        iconWrapper.setAttribute('uk-icon', `icon: ${iconName}`);
+            
+        btn.appendChild(iconWrapper);
         iconsRow.appendChild(btn);
     });
 
     const chevron = document.createElement('button');
     chevron.className = 'chevron';
-    chevron.textContent = '∨';
+    chevron.setAttribute('uk-icon', 'icon: chevron-down');
 
     chevron.addEventListener('click', () => {
         const isHidden = details.classList.contains('hidden');
         details.classList.toggle('hidden', !isHidden);
-        chevron.textContent = isHidden ? '∧' : '∨';
+        chevron.setAttribute('uk-icon', isHidden ? 'icon: chevron-up' : 'icon: chevron-down');
     });
 
     card.appendChild(thumbnail);

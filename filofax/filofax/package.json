@@ -11,5 +11,8 @@
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.1.0"
+  },
+  "dependencies": {
+    "uikit": "^3.25.11"
   }
 }
