@@ -1,7 +1,7 @@
 .card {
     background-color: #ffffff;
-    border-radius: 12px;
-    padding: 32px 24px 20px 24px;
+    border-radius: 10px;
+    padding: 30px 20px 2px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,29 +9,29 @@
 }
 
 .thumbnail {
-    background-color: #20cca2;    ;
+    background-color: #20cca2;
+    font-family: 'League Spartan', sans-serif;
     color: #ffffff;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    font-size: 28px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 32px;
+    font-weight: 650;
+    line-height: 84px;
+    text-align: center;
     margin-bottom: 24px;
 }
 
 .contact-name {
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0 0 6px 0;
+    font-size: 20px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 650;
+    margin: 0 0 2px 0;
 }
 
 .contact-type {
-    font-size: 15px;
-    font-weight: 100;
-    font-family: Garamond, serif;
+    font-size: 10px;
+    font-family: 'Libre Baskerville', serif;
     color: #898484;
     margin: 0 0 24px;
 }
@@ -41,7 +41,7 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 34px;
 }
 
 .details.hidden {
@@ -49,12 +49,11 @@
 }
 
 .detail-item {
-    font-size: 15px;
+    font-size: 10px;
     color: #898484;
     font-weight: 400;
     margin: 0;
-    font-family: Garamond, serif;
-}
+    font-family: 'Libre Baskerville', serif;}
 
 .detail-item a {
     color: #111827;
@@ -62,57 +61,61 @@
 }
 
 .key-contacts-label {
-    font-size: 15px;
-    font-weight: 700;
-    margin: 8px 0 8px 0;
-}
-
-.key-contact-item {
-    margin-bottom: 10px;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 14px;
+    font-weight: 650;
+    margin: 0px;
 }
 
 .key-contact-name {
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 500;
-    font-family: Garamond, serif;
-    color: #9ca3af;
+    font-family: 'Libre Baskerville', serif;
+    color: #898484;
     margin: 0;
 }
 
 .key-contact-email {
-    font-size: 13px;
-    font-family: Garamond, serif;
+    font-size: 10px;
+    font-family: 'Libre Baskerville', serif;
     color: #898484;
     margin: 0;
 }
 
 .icons-row {
     display: flex;
-    gap: 12px;
+    gap: 22px;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
 .icon-btn {
     background-color: #20cca2;
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
     color: #ffffff;
-    font-size: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     border: none;
+    padding: 0;
 }
 
 .chevron {
-    font-size: 16px;
     cursor: pointer;
-    display: block;
-    text-align: center;
-    padding: 4px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
     background: none;
     border: none;
+}
+
+.chevron svg {
+    width: 24px;
+    height: 20px;
+    stroke: black !important;
+    stroke-width: 0.5 !important;
 }

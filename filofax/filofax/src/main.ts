@@ -4,6 +4,12 @@ import "./base.css"
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 
+import 'uikit/dist/css/uikit.min.css';
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+
+UIkit.use(Icons);
+
 // Header
 const header = document.createElement('header');
 
