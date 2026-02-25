@@ -1,18 +1,31 @@
-import { Recipe } from '../types/types';
+import { Recipe, Tag } from '../types/types';
 import './recipe.css';
 
 interface RecipeCardProps {
   recipe: Recipe;
 }
 
-export function RecipeCard({ recipe }: RecipeCardProps) {
-  // convert image if it's binary from MongoDB
-  const imageUrl = `data:image/png;base64,${recipe.image}`;
+const tagEmojis: Record<string, string> = {
+  Spicy: '🌶️',
+  Fish: '🐟',
+  Chicken: '🍗',
+  Meat: '🥩',
+  KidFriendly: '👶',
+};
 
+export function RecipeCard({ recipe }: RecipeCardProps) {
+  const imageUrl = `data:image/png;base64,${recipe.image}`;
+  const activeTags = recipe.tags.filter((tag: Tag) => tag.value === true);
+  
   return (
     <div className="recipe-card">
       <img src={imageUrl} alt={recipe.title} className="recipe-card-image" />
       <h2 className="recipe-card-title">{recipe.title}</h2>
+      <div className="recipe-card-tags">
+        {activeTags.map((tag: Tag) => (
+          <span key={tag.key}>{tagEmojis[tag.key]}</span>
+        ))}
+      </div>
     </div>
   );
 }

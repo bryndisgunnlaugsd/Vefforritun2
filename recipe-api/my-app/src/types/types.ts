@@ -19,7 +19,7 @@ export interface RecipeType {
 
 export interface Tag {
   key: string;
-  value: string;
+  value: boolean;
 }
 
 export interface Instruction {
