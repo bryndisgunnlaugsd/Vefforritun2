@@ -1,0 +1,27 @@
+.category-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 8px 16px;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #929292;
+  transition: all 0.2s ease;
+}
+
+.category-btn.selected {
+  border: 2px solid #B85C79;
+  color: #B85C79;
+}
