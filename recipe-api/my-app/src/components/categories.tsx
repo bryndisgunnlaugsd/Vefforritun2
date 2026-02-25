@@ -12,7 +12,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange}: CategoryFi
     useEffect(() => {
         fetch("http://localhost:3500/recipes/recipeTypes")
         .then((res) => res.json())
-        .then((data: string[]) => setCategories(data))
+        .then((data) => setCategories(data.map((item: any) => item.name)))
         .catch((err) => console.error("Failed to fetch categories", err));
     }, []);
 
