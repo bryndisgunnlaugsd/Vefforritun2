@@ -17,6 +17,7 @@ export function Homepage() {
       fetch('http://localhost:3500/recipes')
         .then(res => res.json())
         .then(data => {
+          console.log(data[0])
           setRecipes(data);
           setLoading(false);
         })
@@ -36,7 +37,7 @@ export function Homepage() {
       <div>
         <Header searchTerm={searchTerm} OnSearchChange={setSearchTerm} />
     
-        <div style={{ backgroundColor: "#EDECF1", minHeight: "100vh", padding: "80px 80px" }}>
+        <div style={{ backgroundColor: "#EDECF1", minHeight: "100vh", padding: "32px 64px" }}>
           <CategoryFilter
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}

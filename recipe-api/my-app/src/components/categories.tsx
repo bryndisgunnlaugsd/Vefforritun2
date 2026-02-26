@@ -1,32 +1,41 @@
 import { useState, useEffect } from "react";
 import "./categories.css";
 
-interface CategoryFilterProps {
-    selectedCategory: string;
-    onCategoryChange: (category: string) => void;
+interface RecipeType {
+  _id: string;
+  name: string;
 }
 
-export function CategoryFilter({ selectedCategory, onCategoryChange}: CategoryFilterProps) {
-    const [categories, setCategories] = useState<string[]>([]);
+interface CategoryFilterProps {
+  selectedCategory: string;
+  onCategoryChange: (category: string) => void;
+}
 
-    useEffect(() => {
-        fetch("http://localhost:3500/recipes/recipeTypes")
-        .then((res) => res.json())
-        .then((data) => setCategories(data.map((item: any) => item.name)))
-        .catch((err) => console.error("Failed to fetch categories", err));
-    }, []);
+export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryFilterProps) {
+  const [categories, setCategories] = useState<RecipeType[]>([]);
 
-    const allCategories = ["All", ...categories];
+  useEffect(() => {
+    fetch("http://localhost:3500/recipes/recipeTypes")
+      .then((res) => res.json())
+      .then((data: RecipeType[]) => setCategories(data))
+      .catch((err) => console.error("Failed to fetch categories", err));
+  }, []);
 
   return (
     <div className="category-filter">
-      {allCategories.map((cat) => (
+      <button
+        className={`category-btn ${selectedCategory === "All" ? "selected" : ""}`}
+        onClick={() => onCategoryChange("All")}
+      >
+        ALL
+      </button>
+      {categories.map((cat) => (
         <button
-          key={cat}
-          className={`category-btn ${selectedCategory === cat ? "selected" : ""}`}
-          onClick={() => onCategoryChange(cat)}
+          key={cat._id}
+          className={`category-btn ${selectedCategory === cat._id ? "selected" : ""}`}
+          onClick={() => onCategoryChange(cat._id)}
         >
-          {cat.toUpperCase()}
+          {cat.name.toUpperCase()}
         </button>
       ))}
     </div>
