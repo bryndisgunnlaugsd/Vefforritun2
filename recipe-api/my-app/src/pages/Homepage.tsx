@@ -32,25 +32,25 @@ export function Homepage() {
       return matchesSearch && matchesCategory;
     });
 
-  return (
-    <div>
-      <Header searchTerm={searchTerm} OnSearchChange={setSearchTerm} />
-
-      <div style={{ padding: "32px 64px" }}>
-        <CategoryFilter
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-        />
+    return (
+      <div>
+        <Header searchTerm={searchTerm} OnSearchChange={setSearchTerm} />
+    
+        <div style={{ backgroundColor: "#EDECF1", minHeight: "100vh", padding: "80px 80px" }}>
+          <CategoryFilter
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
+    
+          {loading && <p>Loading recipes...</p>}
+          {error && <p>{error}</p>}
+    
+          <div className="recipes-grid">
+            {filteredRecipes.map(recipe => (
+              <RecipeCard key={recipe._id.toString()} recipe={recipe} />
+            ))}
+          </div>
+        </div>
       </div>
-
-      {loading && <p>Loading recipes...</p>}
-      {error && <p>{error}</p>}
-
-      <div className="recipes-grid">
-        {filteredRecipes.map(recipe => (
-          <RecipeCard key={recipe._id.toString()} recipe={recipe} />
-        ))}
-      </div>
-    </div>
-  );
+    );
 }

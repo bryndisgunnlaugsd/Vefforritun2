@@ -1,6 +1,6 @@
 .header {
-  height: 350px;
-  background: linear-gradient(to bottom, #219EBC, #2172BC);
+  height: 300px;
+  background: linear-gradient(to bottom, #219EBCCC, #2172BCCC);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,4 +9,7 @@
 
 .header h1 {
   color: #FFFFFF;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 1px;
 }
