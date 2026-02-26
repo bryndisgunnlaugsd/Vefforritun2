@@ -1,25 +1,14 @@
-import { ObjectId } from "mongodb";
-
-export interface Recipe {
-  _id: ObjectId;
-  title: string;
-  description: string;
-  author: string;
-  image: string;
-  recipeType: string;
-  tags: Tag[];
-  instructions: Instruction[];
-  ingredients: Ingredient[];
-}
-
-export interface RecipeType {
-  _id: ObjectId;
-  name: string;
-}
-
 export interface Tag {
   key: string;
-  value: boolean;
+  value: boolean | number;
+}
+
+export interface Ingredient {
+  name?: string;
+  ingredient?: string;
+  amount?: string;
+  quantity?: string;
+  unit?: string;
 }
 
 export interface Instruction {
@@ -27,6 +16,20 @@ export interface Instruction {
   description: string;
 }
 
-export interface Ingredient {
-  ingredient: string;
+export interface Recipe {
+  _id: string;
+  title: string;
+  image: string;
+  recipeType: string;
+  tags: Tag[];
+  author: string;
+  calories: number;
+  totalMinutes: number;
+  description: string;
+  ingredients: Ingredient[];
+  instructions: Instruction[];
+}
+
+export interface RecipeType {
+  name: string;
 }
