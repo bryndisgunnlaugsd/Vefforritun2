@@ -45,11 +45,15 @@ export function Homepage() {
     
           {loading && <p>Loading recipes...</p>}
           {error && <p>{error}</p>}
-    
+          <div className="recipes-section">
+          <div>
+            <p className="total-recipes">You have <span className="recipe-count">{recipes.length}</span> recipes to explore.</p>
+          </div>
           <div className="recipes-grid">
             {filteredRecipes.map(recipe => (
               <RecipeCard key={recipe._id.toString()} recipe={recipe} />
             ))}
+          </div>
           </div>
         </div>
       </div>

@@ -5,10 +5,14 @@
   width: 800px;
 }
 
-.search-icon {
-  position: absolute;
+.search-icon svg{
+  position: relative;
   left: 24px;
+  top: 0;
   color: black;
+  width: 25px;
+  height: 25px;
+  margin-left: 80px;
 }
 
 .search-input {

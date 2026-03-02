@@ -1,6 +1,29 @@
+.recipes-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.total-recipes {
+  margin-bottom: 1.5rem;
+  margin-left: 15px;
+  font-size: 22px;
+}
+
 .recipes-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.recipe-count{
+  color:black;
+  font-weight: 600;
+}
+
+.category-filter{
+  margin-left: 100px;
+  margin-top: 70px;
+  margin-bottom: 25px;
 }
