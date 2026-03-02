@@ -1,32 +1,28 @@
 .recipes-section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1220px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .total-recipes {
   margin-bottom: 1.5rem;
   margin-left: 1px;
   font-size: 20px;
-  font-weight: 380;
+  font-weight: 400;
   color: #929292;
 }
 
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  column-gap: 2rem;
+  row-gap: 3rem;
+  justify-content: center;
 }
 
 .recipe-count{
   color:black;
   font-weight: 550;
   letter-spacing: 1px;
-}
-
-.category-filter{
-  margin-left: 100px;
-  margin-top: 70px;
-  margin-bottom: 25px;
 }
