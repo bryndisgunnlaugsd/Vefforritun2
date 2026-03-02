@@ -21,7 +21,8 @@
 
 .recipe-count{
   color:black;
-  font-weight: 600;
+  font-weight: 550;
+  letter-spacing: 1px;
 }
 
 .category-filter{
