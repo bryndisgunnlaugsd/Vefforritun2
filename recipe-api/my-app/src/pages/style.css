@@ -7,8 +7,10 @@
 
 .total-recipes {
   margin-bottom: 1.5rem;
-  margin-left: 15px;
-  font-size: 22px;
+  margin-left: 1px;
+  font-size: 20px;
+  font-weight: 380;
+  color: #929292;
 }
 
 .recipes-grid {
