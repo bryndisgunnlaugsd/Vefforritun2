@@ -37,10 +37,6 @@ export function Recipedetail() {
 
   return (
     <div>
-      <button className="detail-back-btn" onClick={() => navigate('/')}>
-        ← Back
-      </button>
-
       <img src={imageUrl} alt={recipe.title} className="detail-cover-image" />
 
       <div className="detail-content">
