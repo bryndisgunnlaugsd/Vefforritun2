@@ -72,6 +72,7 @@
   padding: 0 0 0 20px;
   margin: 0 0 40px 0;
   color: #929292;
+  line-height: 1.2;
 }
 
   .detail-ingredients-list li {
@@ -95,7 +96,7 @@
   }
   
   .detail-instructions-list {
-    list-style-type: disc;
+    list-style-type:decimal;
     color: #929292;
     padding: 0 0 0 20px;
     margin: 0 0 40px 0;
