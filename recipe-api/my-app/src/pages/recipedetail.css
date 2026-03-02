@@ -7,13 +7,12 @@
   
   .detail-content {
     max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 48px 80px 20px;
-    font-family: "League Spartan", serif;
+    margin: 20px 0 0 200px;
+    padding: 40px 48px 80px 0px;
   }
   
   .detail-title {
-    font-size: 32px;
+    font-size: 46px;
     font-weight: 600;
     color: #1a1a1a;
     margin: 0 0 8px 0;
@@ -55,8 +54,8 @@
   }
   
   .detail-section-title {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 600;
     color: #1a1a1a;
     margin: 0 0 12px 0;
   }
@@ -69,43 +68,52 @@
   }
   
   .detail-ingredients-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-  }
-  
+  list-style-type: disc;
+  padding: 0 0 0 20px;
+  margin: 0 0 40px 0;
+  color: #929292;
+}
+
   .detail-ingredients-list li {
-    font-size: 15px;
-    color: #444;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    gap: 8px;
-  }
-  
+  font-size: 15px;
+  color: #929292;
+  padding: 0;
+  border-bottom: none;
+  display: list-item;
+  text-decoration: none;
+  margin: 0;
+}
+
+.detail-ingredients-list li::marker {
+  color: #929292;
+}
+
   .detail-ingredient-amount {
     font-weight: 700;
-    min-width: 80px;
-    color: #1a1a1a;
+    color: #929292;
+    margin-right: 4px;
   }
   
   .detail-instructions-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    counter-reset: step-counter;
+    list-style-type: disc;
+    color: #929292;
+    padding: 0 0 0 20px;
+    margin: 0 0 40px 0;
   }
   
   .detail-instructions-list li {
     font-size: 15px;
-    color: #444;
-    line-height: 1.7;
-    padding: 14px 0 14px 48px;
-    border-bottom: 1px solid #f0f0f0;
-    position: relative;
-    counter-increment: step-counter;
+    color: #929292;
+    padding: 0;
+    border-bottom: none;
+    display: list-item;
+    text-decoration: none;
+    margin: 0;
   }
   
+  .detail-instructions-list li::marker {
+    color: #929292;
+  }
   .detail-instructions-list li::before {
     content: counter(step-counter);
     position: absolute;
