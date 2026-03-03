@@ -11,7 +11,7 @@
     padding: 40px 48px 80px 0px;
 }
   
-  .detail-title {
+   .detail-title {
     font-size: 46px;
     font-weight: 600;
     color: #1a1a1a;
@@ -45,7 +45,7 @@
     color: black;
     margin: 0 0 6px 0;
   }
-  
+
   .detail-stat-value {
     font-size: 20px;
     font-weight: 600;
@@ -53,37 +53,74 @@
     margin: 0;
   }
   
-  .detail-section-title {
+   .detail-section-title {
     font-size: 32px;
     font-weight: 600;
     color: black;
     margin: 0 0 12px 0;
   }
   
-  .detail-description {
+   .detail-description {
     font-size: 18px;
     color: #929292;
     line-height: 1.7;
     margin: 0 0 40px 0;
   }
+
+   .detail-ingredients-list {
+      list-style-type: disc;
+      padding: 0 0 0 20px;
+      margin: 0 0 40px 0;
+      color: #929292;
+    }
   
-  .detail-ingredients-list {
-  list-style-type: disc;
-  padding: 0 0 0 20px;
-  margin: 0 0 40px 0;
-  color: #929292;
-}
-
   .detail-ingredients-list li {
-  font-size: 18px;
-  color: #929292;
-  padding: 0;
-  border-bottom: none;
-  display: list-item;
-  text-decoration: none;
-  margin: 0;
-}
+    font-size: 18px;
+    color: #929292;
+    padding: 0;
+    border-bottom: none;
+    display: list-item;
+    text-decoration: none;
+    margin: 0;
+  }
 
-.detail-instruction-list {
+  .detail-ingredients-list li::marker {
+    color: #929292;
+  }
 
-}
+  .detail-ingredient-amount {
+    font-weight: 700;
+    color: #929292;
+    margin-right: 4px;
+  }
+  
+  .detail-instructions-list {
+    list-style-type:decimal;
+    color: #929292;
+    padding: 0 0 0 20px;
+    margin: 0 0 40px 0;
+  }
+  
+  .detail-instructions-list li {
+    font-size: 15px;
+    color: #929292;
+    padding: 0;
+    border-bottom: none;
+    display: list-item;
+    text-decoration: none;
+    margin: 0;
+  }
+  
+  .detail-instructions-list li::marker {
+    color: #929292;
+  }
+  
+  .detail-loading,
+  .detail-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    font-size: 18px;
+    color: #929292;
+  }
