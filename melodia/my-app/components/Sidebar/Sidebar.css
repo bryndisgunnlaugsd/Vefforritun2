@@ -1,0 +1,85 @@
+.sidebar {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 224px;
+    background-color: #111827;
+    border-right: 1px solid #1f2937;
+    padding-top: 2rem;
+  }
+  
+  .sidebar-logo {
+    padding: 0 1.5rem;
+    margin-bottom: 2.5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+  }
+  
+  .nav-link {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #9ca3af;
+    transition: color 0.2s, background-color 0.2s;
+  }
+  
+  .nav-link:hover {
+    color: white;
+    background-color: #1f2937;
+  }
+  
+  .nav-link.active {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Mobile top bar */
+  .mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    background-color: #111827;
+    border-bottom: 1px solid #1f2937;
+  }
+  
+  .mobile-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+  
+  .mobile-logo {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .mobile-nav {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  /* Show sidebar on desktop, hide mobile header */
+  @media (min-width: 768px) {
+    .sidebar {
+      display: flex;
+    }
+    .mobile-header {
+      display: none;
+    }
+  }

@@ -1,0 +1,45 @@
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: #111827;
+  border-top: 1px solid #1f2937;
+  padding: 0.75rem 1.5rem;
+}
+
+.player-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-artwork {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-track-name {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.player-artist-name {
+  color: #9ca3af;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.player-empty {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
