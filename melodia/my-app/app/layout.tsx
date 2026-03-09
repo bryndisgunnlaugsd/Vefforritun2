@@ -6,7 +6,6 @@ import PlayerBar from '@/components/PlayerBar/PlayerBar';
 
 export const metadata: Metadata = {
   title: 'Melodia',
-  description: 'Music browser app',
 };
 
 export default function RootLayout({
@@ -18,19 +17,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <PlayerProvider>
-
-          {/* Sidebar shows on every page */}
           <Sidebar />
-
-          {/* "children" is whatever page we are on */}
-          {/* padding-left pushes content so it doesn't hide behind the sidebar */}
-          <main style={{ paddingLeft: '224px' }}>
+          <main style={{ paddingLeft: '224px', backgroundColor: '#0a0a0a', minHeight: '100vh', paddingBottom: '150px' }}>
             {children}
           </main>
-
-          {/* PlayerBar shows on every page, fixed to the bottom */}
           <PlayerBar />
-
         </PlayerProvider>
       </body>
     </html>
