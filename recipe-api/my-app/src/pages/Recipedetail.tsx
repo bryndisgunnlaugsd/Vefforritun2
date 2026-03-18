@@ -6,7 +6,6 @@ import './recipedetail.css';
 
 export function Recipedetail() {
   const { recipeId } = useParams<{ recipeId: string }>();
-  const navigate = useNavigate();
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -33,7 +32,6 @@ export function Recipedetail() {
   const allTags = recipe.tags as any[];
   const calories = allTags.find(t => t.key === 'Calories')?.value;
   const totalMinutes = allTags.find(t => t.key === 'TotalMinutes')?.value;
-  const activeTags = allTags.filter(t => ['Meat','Chicken','Fish','Spicy','KidFriendly'].includes(t.key) && t.value === true);
 
   return (
     <div>
@@ -60,12 +58,9 @@ export function Recipedetail() {
         <h2 className="detail-section-title">Ingredients</h2>
         <ul className="detail-ingredients-list">
           {recipe.ingredients.map((ingredient, index) => {
-            const displayName = ingredient.name ?? ingredient.ingredient ?? '';
-            const displayAmount = ingredient.amount ?? ingredient.quantity ?? '';
-            const displayUnit = ingredient.unit ?? '';
+            const displayName = ingredient.ingredient ?? ingredient.name ?? '';
             return (
               <li key={index}>
-                <span className="detail-ingredient-amount">{displayAmount} {displayUnit}</span>
                 <span>{displayName}</span>
               </li>
             );

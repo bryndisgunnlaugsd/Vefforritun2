@@ -1,0 +1,10 @@
+# Project Setup
+
+Run the following commands to install all dependencies and start the development server:
+
+npm install  
+npm run dev
+
+This will install and fetch all required dependencies, and run the web application locally.
+
+# Click the localhost link to view our finished version
