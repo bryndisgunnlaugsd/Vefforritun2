@@ -52,7 +52,7 @@ export default function CartPage() {
           <div className="mt-8">
             <p className="text-xl font-bold">Total: {total} kr</p>
             <button
-              onClick={() => router.push("/checkout")}
+              onClick={() => router.push("/checkout/delivery")}
               className="mt-4 bg-green-500 text-black px-6 py-3 rounded"
             >
               Proceed to checkout
