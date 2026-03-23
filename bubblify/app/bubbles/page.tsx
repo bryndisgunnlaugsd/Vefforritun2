@@ -19,21 +19,21 @@ export default async function Bubbles() {
   const bubbles = await getBubbles();
 
   return (
-    <main className="bg-white text-black min-h-screen p-8">
+    <main className="bg-slate-50 text-slate-900 min-h-screen p-8">
       <h1 className="text-3xl font-bold mb-8">Bubble Products</h1>
       <div className="grid grid-cols-3 gap-6">
         {bubbles.map((bubble) => (
           <Link href={`/bubbles/${bubble.id}`} key={bubble.id}>
-            <div className="border rounded-xl p-4 hover:shadow-lg transition-shadow cursor-pointer">
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 hover:shadow-lg transition-shadow cursor-pointer">
               <Image
                 src={bubble.image}
                 alt={bubble.name}
                 width={400}
                 height={400}
-                className="w-full object-cover rounded-lg"
+                className="w-full object-cover rounded-xl"
               />
-              <h2 className="text-xl font-semibold mt-3">{bubble.name}</h2>
-              <p className="text-gray-600 mt-1">{bubble.price} kr</p>
+              <h2 className="text-lg font-semibold mt-3">{bubble.name}</h2>
+              <p className="text-indigo-600 font-medium mt-1">{bubble.price} kr</p>
             </div>
           </Link>
         ))}

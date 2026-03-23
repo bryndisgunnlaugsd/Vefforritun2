@@ -23,35 +23,35 @@ export default function ReviewPage() {
 
   return (
     <div className="max-w-md mx-auto mt-20 p-6">
-      <h1 className="text-2xl font-bold mb-8 text-center">Review Your Order</h1>
+      <h1 className="text-2xl font-bold mb-8 text-center text-slate-900">Review Your Order</h1>
 
-      <div className="border rounded-xl p-4 mb-4">
-        <h2 className="font-semibold text-lg mb-2">Delivery Method</h2>
-        <p className="text-gray-600 capitalize">{deliveryMethod === "delivery" ? "Home Delivery" : "Store Pickup"}</p>
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 mb-4 shadow-sm">
+        <h2 className="font-semibold text-lg mb-2 text-slate-900">Delivery Method</h2>
+        <p className="text-slate-500">{deliveryMethod === "delivery" ? "Home Delivery" : "Store Pickup"}</p>
       </div>
 
-      <div className="border rounded-xl p-4 mb-4">
-        <h2 className="font-semibold text-lg mb-2">Your Information</h2>
-        <p className="text-gray-600">Name: {customerInfo.name}</p>
-        <p className="text-gray-600">Telephone: {customerInfo.telephone}</p>
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 mb-4 shadow-sm">
+        <h2 className="font-semibold text-lg mb-2 text-slate-900">Your Information</h2>
+        <p className="text-slate-500">Name: {customerInfo.name}</p>
+        <p className="text-slate-500">Telephone: {customerInfo.telephone}</p>
         {deliveryMethod === "delivery" && (
           <>
-            <p className="text-gray-600">Address: {customerInfo.address}</p>
-            <p className="text-gray-600">City: {customerInfo.city}</p>
-            <p className="text-gray-600">Postal Code: {customerInfo.postalCode}</p>
+            <p className="text-slate-500">Address: {customerInfo.address}</p>
+            <p className="text-slate-500">City: {customerInfo.city}</p>
+            <p className="text-slate-500">Postal Code: {customerInfo.postalCode}</p>
           </>
         )}
       </div>
 
-      <div className="border rounded-xl p-4 mb-6">
-        <h2 className="font-semibold text-lg mb-2">Order Summary</h2>
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 mb-6 shadow-sm">
+        <h2 className="font-semibold text-lg mb-2 text-slate-900">Order Summary</h2>
         {cart.map((item) => (
-          <div key={item.id} className="flex justify-between text-gray-600 py-1">
+          <div key={item.id} className="flex justify-between text-slate-500 py-1">
             <span>{item.name} x{item.quantity}</span>
             <span>{item.price * item.quantity} kr</span>
           </div>
         ))}
-        <div className="border-t mt-2 pt-2 flex justify-between font-semibold">
+        <div className="border-t border-slate-200 mt-2 pt-2 flex justify-between font-semibold text-slate-900">
           <span>Total</span>
           <span>{total} kr</span>
         </div>
@@ -59,7 +59,7 @@ export default function ReviewPage() {
 
       <button
         onClick={handleConfirm}
-        className="w-full bg-blue-500 text-white rounded-lg p-3 hover:bg-blue-600 transition-colors"
+        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl p-3 font-medium transition-colors"
       >
         Confirm Order
       </button>

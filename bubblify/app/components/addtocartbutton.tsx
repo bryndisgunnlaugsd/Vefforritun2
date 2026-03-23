@@ -14,7 +14,7 @@ export default function AddToCartButton({ id, name, price }: Props) {
   return (
     <button
       onClick={() => addToCart({ id, name, price })}
-      className="bg-blue-500 text-white px-4 py-2 rounded"
+      className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg font-medium transition-colors"
     >
       Add to Cart
     </button>

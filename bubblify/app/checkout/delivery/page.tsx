@@ -14,23 +14,23 @@ export default function DeliveryPage() {
 
   return (
     <div className="max-w-md mx-auto mt-20 p-6">
-      <h1 className="text-2xl font-bold mb-8 text-center">How would you like to receive your order?</h1>
+      <h1 className="text-2xl font-bold mb-8 text-center text-slate-900">How would you like to receive your order?</h1>
 
       <div className="flex flex-col gap-4">
         <button
           onClick={() => handleSelect("delivery")}
-          className="border-2 border-gray-200 rounded-xl p-6 text-left hover:border-blue-500 hover:bg-blue-50 transition-all"
+          className="border-2 border-slate-200 rounded-2xl p-6 text-left hover:border-indigo-500 hover:bg-indigo-50 transition-all"
         >
-          <h2 className="text-xl font-semibold mb-1">Home Delivery</h2>
-          <p className="text-gray-500">We deliver the bubbles straight to your door</p>
+          <h2 className="text-xl font-semibold mb-1 text-slate-900">Home Delivery</h2>
+          <p className="text-slate-500">We deliver the bubbles straight to your door</p>
         </button>
 
         <button
           onClick={() => handleSelect("pickup")}
-          className="border-2 border-gray-200 rounded-xl p-6 text-left hover:border-blue-500 hover:bg-blue-50 transition-all"
+          className="border-2 border-slate-200 rounded-2xl p-6 text-left hover:border-indigo-500 hover:bg-indigo-50 transition-all"
         >
-          <h2 className="text-xl font-semibold mb-1">Store Pickup</h2>
-          <p className="text-gray-500">Pick up your bubbles at our store</p>
+          <h2 className="text-xl font-semibold mb-1 text-slate-900">Store Pickup</h2>
+          <p className="text-slate-500">Pick up your bubbles at our store</p>
         </button>
       </div>
     </div>

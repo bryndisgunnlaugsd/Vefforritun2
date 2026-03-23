@@ -15,13 +15,13 @@ export default function SuccessPage() {
   return (
     <div className="max-w-md mx-auto mt-20 p-6 text-center">
       <div className="text-6xl mb-6">🎉</div>
-      <h1 className="text-3xl font-bold mb-4">Order Confirmed!</h1>
-      <p className="text-gray-600 mb-8">
+      <h1 className="text-3xl font-bold mb-4 text-slate-900">Order Confirmed!</h1>
+      <p className="text-slate-500 mb-8">
         Thank you for your order! Your bubbles are on their way. We hope they bring lots of joy!
       </p>
       <Link
         href="/bubbles"
-        className="bg-blue-500 text-white rounded-lg px-6 py-3 hover:bg-blue-600 transition-colors"
+        className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl px-6 py-3 font-medium transition-colors"
       >
         Continue Shopping
       </Link>

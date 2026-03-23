@@ -46,7 +46,7 @@ export default function InfoPage() {
 
   return (
     <div className="max-w-md mx-auto mt-20 p-6">
-      <h1 className="text-2xl font-bold mb-8 text-center">
+      <h1 className="text-2xl font-bold mb-8 text-center text-slate-900">
         {deliveryMethod === "delivery" ? "Delivery Information" : "Pickup Information"}
       </h1>
 
@@ -57,7 +57,7 @@ export default function InfoPage() {
             placeholder="Full Name"
             value={form.name}
             onChange={handleChange}
-            className="w-full border rounded-lg p-3"
+            className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-indigo-500 transition-colors"
           />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
@@ -68,7 +68,7 @@ export default function InfoPage() {
             placeholder="Telephone"
             value={form.telephone}
             onChange={handleChange}
-            className="w-full border rounded-lg p-3"
+            className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-indigo-500 transition-colors"
           />
           {errors.telephone && <p className="text-red-500 text-sm mt-1">{errors.telephone}</p>}
         </div>
@@ -81,7 +81,7 @@ export default function InfoPage() {
                 placeholder="Address"
                 value={form.address}
                 onChange={handleChange}
-                className="w-full border rounded-lg p-3"
+                className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-indigo-500 transition-colors"
               />
               {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
             </div>
@@ -92,7 +92,7 @@ export default function InfoPage() {
                 placeholder="City"
                 value={form.city}
                 onChange={handleChange}
-                className="w-full border rounded-lg p-3"
+                className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-indigo-500 transition-colors"
               />
               {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
             </div>
@@ -103,7 +103,7 @@ export default function InfoPage() {
                 placeholder="Postal Code"
                 value={form.postalCode}
                 onChange={handleChange}
-                className="w-full border rounded-lg p-3"
+                className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-indigo-500 transition-colors"
               />
               {errors.postalCode && <p className="text-red-500 text-sm mt-1">{errors.postalCode}</p>}
             </div>
@@ -112,7 +112,7 @@ export default function InfoPage() {
 
         <button
           onClick={handleSubmit}
-          className="bg-blue-500 text-white rounded-lg p-3 mt-4 hover:bg-blue-600 transition-colors"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl p-3 mt-4 font-medium transition-colors"
         >
           Continue to Review
         </button>
