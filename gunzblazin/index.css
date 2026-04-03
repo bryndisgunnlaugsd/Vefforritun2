@@ -1,0 +1,154 @@
+body {
+    overflow: auto;
+    background-color: #fe76e3;
+}
+
+.gun {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+}
+
+.gun-container {
+    position: relative;
+    height: 200px;
+}
+
+.bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    background: radial-gradient(black, lightgray);
+}
+
+.bullet-animated-from-right {
+    animation: bullet-shot-from-right .6s linear 1 both;
+}
+
+@keyframes bullet-shot-from-right {
+    0% {
+        opacity: 1;
+        left: 88%;
+    }
+    100% {
+        opacity: 1;
+        left: -5%; /* Just outside the border */
+    }
+}
+
+.bullet-animated-from-left {
+    animation: bullet-shot-from-left .6s linear 1 both;
+}
+
+@keyframes bullet-shot-from-left {
+    0% {
+        opacity: 1;
+        right: 88%;
+    }
+    100% {
+        opacity: 1;
+        right: -5%; /* Just outside the border */
+    }
+}
+
+.laser {
+    width: 200px;
+    border-radius: 10px;
+    height: 10px;
+    background: linear-gradient(red, red, white, red, red);
+    opacity: 0;
+    position: absolute;
+}
+
+.laser-animated {
+    animation: laser-shot .8s linear both 1;
+}
+
+@keyframes laser-shot {
+    0% {
+        opacity: 1;
+        left: 170px;
+    }
+    100% {
+        opacity: 1;
+        left: 150%; /* Just outside the border */
+    }
+}
+
+.pistol {
+    background-image: url(/gun1.png);
+    float: right;
+}
+
+.pistol-animated {
+    animation: pistol-gun-shake .6s linear 2;
+    transform-origin: 50% 90%;
+}
+
+@keyframes pistol-gun-shake {
+    0% { transform: translateX(0) rotateZ(0deg); }
+    20% { transform: translateX(-5px) rotateZ(30deg); }
+    100% { transform: translateX(0) rotateZ(0deg); }
+}
+
+.uzi {
+    background-image: url(/gun2.png);
+    float: left;
+    clear: both;
+}
+
+.uzi-animated {
+    animation: uzi-gun-shake .2s linear 10;
+}
+
+@keyframes uzi-gun-shake {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(5px) translateY(10px); }
+    50% { transform: translateX(-5px) translateY(-10px); }
+    75% { transform: translateX(5px) translateY(10px); }
+    100% { transform: translateX(-5px) translateY(-10px); }
+}
+
+.machine-gun {
+    background-image: url(/gun3.png);
+    float: right;
+    clear: both;
+}
+
+.machine-gun-animated {
+    animation: machine-gun-shake .4s ease-in 10;
+}
+
+@keyframes machine-gun-shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+}
+
+.laser-gun {
+    background-image: url(/gun4.png);
+    float: left;
+    clear: both;
+}
+
+.laser-gun-animated {
+    animation: laser-gun-shake 1s ease-in 10;
+}
+
+@keyframes laser-gun-shake {
+    0% { transform: translateY(0); }
+    5% { transform: translateY(-10px); }
+    10% { transform: translateY(10px); }
+    15% { transform: translateY(-10px); }
+    20% { transform: translateY(10px); }
+    50% {
+        transform-origin: 50% 90%;
+        transform: translateX(-5px) rotateZ(-30deg);
+    }
+    100% {
+        transform-origin: 50% 90%;
+        transform: translateX(0) rotateZ(0deg);
+    }
+}
