@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useFormContext, useForm, useWatch } from 'react-hook-form'
+import { useFormContext, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Checkbox from '@/components/ui/checkbox'
@@ -45,7 +45,7 @@ export default function PartnerPage() {
   const router = useRouter()
   const { getValues, setValue } = useFormContext()
 
-  const { register, handleSubmit, control, formState: { errors } } = useForm<StepData>({
+  const { register, handleSubmit, control, watch, formState: { errors } } = useForm<StepData>({
     resolver: zodResolver(schema),
     defaultValues: {
       hasPartner: getValues('hasPartner'),
@@ -55,12 +55,13 @@ export default function PartnerPage() {
     },
   })
 
-  const hasPartner = useWatch({ control, name: 'hasPartner' })
+  const hasPartner = watch('hasPartner')
 
   const onSubmit = (data: StepData) => {
-    Object.entries(data).forEach(([key, value]) => {
-      setValue(key, value, { shouldDirty: true })
-    })
+    setValue('hasPartner', data.hasPartner, { shouldDirty: true })
+    setValue('partnerFullName', data.partnerFullName ?? '', { shouldDirty: true })
+    setValue('partnerKennitala', data.partnerKennitala ?? '', { shouldDirty: true })
+    setValue('partnerEmploymentStatus', data.partnerEmploymentStatus, { shouldDirty: true })
     router.push('/application/leave')
   }
 

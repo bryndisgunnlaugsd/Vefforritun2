@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useFormContext, useForm } from 'react-hook-form'
+import { useEffect } from 'react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import FileUpload from '@/components/ui/file-upload'
@@ -13,15 +14,15 @@ const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024
 
 const schema = z.object({
   documents: z
-    .custom<FileList>()
-    .refine((files) => files && files.length > 0, 'At least one document is required')
-    .refine((files) => {
+    .any()
+    .refine((files: FileList) => files && files.length > 0, 'At least one document is required')
+    .refine((files: FileList) => {
       if (!files) return true
-      return Array.from(files).every((file) => ACCEPTED_TYPES.includes(file.type))
+      return Array.from(files).every((file: File) => ACCEPTED_TYPES.includes(file.type))
     }, 'Only .pdf, .jpg and .png files are accepted')
-    .refine((files) => {
+    .refine((files: FileList) => {
       if (!files) return true
-      return Array.from(files).every((file) => file.size <= MAX_SIZE_BYTES)
+      return Array.from(files).every((file: File) => file.size <= MAX_SIZE_BYTES)
     }, `Each file must be under ${MAX_SIZE_MB}MB`),
 })
 
@@ -31,11 +32,20 @@ type StepData = {
 
 export default function DocumentsPage() {
   const router = useRouter()
-  const { setValue } = useFormContext()
+  const { setValue, getValues } = useFormContext()
 
-  const { register, handleSubmit, formState: { errors } } = useForm<StepData>({
+  const existingDocs = getValues('documents') as FileList | undefined
+  const existingNames = existingDocs ? Array.from(existingDocs).map((f: File) => f.name) : []
+
+  const { register, handleSubmit, setValue: localSetValue, formState: { errors } } = useForm<StepData>({
     resolver: zodResolver(schema),
   })
+
+  useEffect(() => {
+    if (existingDocs) {
+      localSetValue('documents', existingDocs)
+    }
+  }, [])
 
   const onSubmit = (data: StepData) => {
     setValue('documents', data.documents, { shouldDirty: true })
@@ -56,6 +66,7 @@ export default function DocumentsPage() {
           accept=".pdf,.jpg,.png"
           maxSizeMB={MAX_SIZE_MB}
           multiple
+          initialFileNames={existingNames}
           error={errors.documents?.message as string}
         />
 

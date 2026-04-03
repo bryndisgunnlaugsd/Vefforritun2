@@ -31,12 +31,12 @@ interface Step {
                 >
                   {isCompleted ? '✓' : index + 1}
                 </span>
-                <span className={`text-xs hidden sm:block ${isCurrent ? 'text-blue-700 font-medium' : 'text-gray-400'}`}>
+                <span className={`text-xs ${isCurrent ? 'text-blue-700 font-medium' : 'text-gray-400'}`}>
                   {step.label}
                 </span>
               </button>
               {index < steps.length - 1 && (
-                <div className={`h-0.5 w-6 sm:w-12 ${index < currentIndex ? 'bg-blue-600' : 'bg-gray-200'}`} />
+                <div className={`h-0.5 w-12 ${index < currentIndex ? 'bg-blue-600' : 'bg-gray-200'}`} />
               )}
             </div>
           )

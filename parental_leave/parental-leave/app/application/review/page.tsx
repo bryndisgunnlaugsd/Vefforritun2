@@ -14,7 +14,7 @@ type ReviewRowProps = {
 function ReviewRow({ label, value }: ReviewRowProps) {
   if (value === null || value === undefined || value === '') return null
   return (
-    <div className="flex justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex justify-between py-2 border-b border-gray-100">
       <span className="text-sm text-gray-500">{label}</span>
       <span className="text-sm text-gray-900 font-medium text-right max-w-xs">{String(value)}</span>
     </div>

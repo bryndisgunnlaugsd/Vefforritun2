@@ -15,7 +15,7 @@ async function ConfirmationContent({ searchParams }: { searchParams: Promise<{ i
         </div>
         <h1 className="text-xl font-semibold text-gray-900 mb-2">Application Submitted</h1>
         <p className="text-sm text-gray-500 mb-6">
-          Your parental leave application has been successfully submitted. You will be contacted once it has been reviewed.
+          Your parental leave application has been successfully submitted.
         </p>
         <div className="bg-gray-50 rounded-md p-4 mb-6">
           <p className="text-xs text-gray-500 mb-1">Confirmation Number</p>

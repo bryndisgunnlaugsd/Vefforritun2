@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useFormContext, useForm, useWatch } from 'react-hook-form'
+import { useFormContext, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import DatePicker from '@/components/ui/date-picker'
@@ -18,7 +18,7 @@ const LEAVE_RATIO_OPTIONS = [
 const schema = z.object({
   startDate: z.date({ required_error: 'Start date is required' }),
   endDate: z.date({ required_error: 'End date is required' }),
-  leaveRatio: z.enum(['25', '50', '75', '100'], { required_error: 'Leave ratio is required' }),
+  leaveRatio: z.enum(['25', '50', '75', '100'], { required_error: 'Leave ratio is required', invalid_type_error: 'Please select a leave ratio' }),
 }).superRefine((data, ctx) => {
   if (data.startDate && data.endDate) {
     if (data.endDate <= data.startDate) {
@@ -42,7 +42,7 @@ export default function LeavePage() {
   const router = useRouter()
   const { getValues, setValue } = useFormContext()
 
-  const { handleSubmit, control, formState: { errors } } = useForm<StepData>({
+  const { handleSubmit, control, watch, formState: { errors } } = useForm<StepData>({
     resolver: zodResolver(schema),
     defaultValues: {
       startDate: getValues('startDate'),
@@ -51,12 +51,12 @@ export default function LeavePage() {
     },
   })
 
-  const startDate = useWatch({ control, name: 'startDate' })
+  const startDate = watch('startDate')
 
   const onSubmit = (data: StepData) => {
-    Object.entries(data).forEach(([key, value]) => {
-      setValue(key, value, { shouldDirty: true })
-    })
+    setValue('startDate', data.startDate, { shouldDirty: true })
+    setValue('endDate', data.endDate, { shouldDirty: true })
+    setValue('leaveRatio', data.leaveRatio, { shouldDirty: true })
     router.push('/application/payment')
   }
 

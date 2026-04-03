@@ -33,9 +33,9 @@ export default function PaymentPage() {
   })
 
   const onSubmit = (data: StepData) => {
-    Object.entries(data).forEach(([key, value]) => {
-      setValue(key, value, { shouldDirty: true })
-    })
+    setValue('bankNumber', data.bankNumber, { shouldDirty: true })
+    setValue('ledger', data.ledger, { shouldDirty: true })
+    setValue('accountNumber', data.accountNumber, { shouldDirty: true })
     router.push('/application/documents')
   }
 
@@ -43,7 +43,7 @@ export default function PaymentPage() {
     <div>
       <h2 className="text-lg font-semibold text-gray-900 mb-1">Payment Details</h2>
       <p className="text-sm text-gray-500 mb-6">
-        Enter your Icelandic bank account details. Format: <span className="font-mono">0000-00-000000</span>
+        Enter your Icelandic bank account details.
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -57,7 +57,7 @@ export default function PaymentPage() {
               maxLength={4}
             />
           </div>
-          <div className="flex-none pt-6 text-gray-400 font-mono text-lg select-none">—</div>
+          <div className="flex-none pt-6 text-gray-400 font-mono text-lg ">—</div>
           <div className="flex-none w-20">
             <Input
               label="Ledger"
@@ -67,7 +67,7 @@ export default function PaymentPage() {
               maxLength={2}
             />
           </div>
-          <div className="flex-none pt-6 text-gray-400 font-mono text-lg select-none">—</div>
+          <div className="flex-none pt-6 text-gray-400 font-mono text-lg ">—</div>
           <div className="flex-1">
             <Input
               label="Account Number"

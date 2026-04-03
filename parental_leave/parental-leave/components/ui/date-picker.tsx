@@ -25,7 +25,7 @@ export default function DatePicker<T extends FieldValues>({ label, name, control
             minDate={minDate}
             maxDate={maxDate}
             dateFormat="dd/MM/yyyy"
-            className={`border rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            className={`border rounded-md px-3 py-2 text-sm w-full ${
               error ? 'border-red-500' : 'border-gray-300'
             }`}
             wrapperClassName="w-full"

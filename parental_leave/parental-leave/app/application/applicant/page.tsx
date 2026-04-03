@@ -35,10 +35,11 @@ export default function ApplicantPage() {
   })
 
   const onSubmit = (data: StepData) => {
-    // Write validated data back to the global form context
-    Object.entries(data).forEach(([key, value]) => {
-      setValue(key as keyof StepData, value, { shouldDirty: true })
-    })
+    setValue('fullName', data.fullName, { shouldDirty: true })
+    setValue('kennitala', data.kennitala, { shouldDirty: true })
+    setValue('address', data.address, { shouldDirty: true })
+    setValue('email', data.email, { shouldDirty: true })
+    setValue('phone', data.phone, { shouldDirty: true })
     router.push('/application/employment')
   }
 
@@ -49,10 +50,10 @@ export default function ApplicantPage() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
         <Input label="Full Name" {...register('fullName')} error={errors.fullName?.message} />
-        <Input label="Kennitala" {...register('kennitala')} error={errors.kennitala?.message} placeholder="0000000000" />
+        <Input label="Kennitala" {...register('kennitala')} error={errors.kennitala?.message} placeholder="000000-0000" />
         <Input label="Address" {...register('address')} error={errors.address?.message} />
         <Input label="Email" type="email" {...register('email')} error={errors.email?.message} />
-        <Input label="Phone Number" {...register('phone')} error={errors.phone?.message} placeholder="0000000" />
+        <Input label="Phone Number" {...register('phone')} error={errors.phone?.message} placeholder="000-0000" />
 
         <div className="flex justify-end pt-2">
           <Button type="submit">Next</Button>

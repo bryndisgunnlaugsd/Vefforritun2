@@ -60,7 +60,7 @@ export default function ApplicationLayout({ children }: { children: React.ReactN
 
   return (
     <FormProvider {...methods}>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
         {/* Header */}
         <header className="bg-white">
           <div className="max-w-3xl mx-auto px-4 pt-8 pb-4">
@@ -81,7 +81,7 @@ export default function ApplicationLayout({ children }: { children: React.ReactN
 
         {/* Page Content */}
         <main className="max-w-3xl mx-auto px-4 py-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border-t-4 border-blue-500">
             {children}
           </div>
         </main>

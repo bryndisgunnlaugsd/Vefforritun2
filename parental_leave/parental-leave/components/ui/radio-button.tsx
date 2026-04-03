@@ -1,19 +1,19 @@
-import { Control, Controller, FieldValues, Path } from 'react-hook-form'
+import { Control, Controller } from 'react-hook-form'
 
 interface RadioOption {
   label: string
   value: string
 }
 
-interface RadioButtonProps<T extends FieldValues> {
+interface RadioButtonProps {
   label: string
-  name: Path<T>
-  control: Control<T>
+  name: string
+  control: Control<any>
   options: RadioOption[]
   error?: string
 }
 
-export default function RadioButton<T extends FieldValues>({ label, name, control, options, error }: RadioButtonProps<T>) {
+export default function RadioButton({ label, name, control, options, error }: RadioButtonProps) {
   return (
     <div className="flex flex-col gap-2">
       <span className="text-sm font-medium text-gray-700">{label}</span>

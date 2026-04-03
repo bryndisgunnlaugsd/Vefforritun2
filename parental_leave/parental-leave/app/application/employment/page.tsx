@@ -2,39 +2,45 @@
 
 import { useRouter } from 'next/navigation'
 import { useFormContext } from 'react-hook-form'
-import { useForm, useWatch } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ApplicationFormData, EmploymentType } from '@/lib/types'
+import { ApplicationFormData } from '@/lib/types'
 import RadioButton from '@/components/ui/radio-button'
 import Input from '@/components/ui/input'
 import Button from '@/components/ui/button'
 
-const schema = z.discriminatedUnion('employmentType', [
-  z.object({
-    employmentType: z.literal('employed'),
-    employerName: z.string().min(1, 'Employer name is required'),
-    employmentRatio: z.coerce
-      .number({ invalid_type_error: 'Employment ratio is required' })
-      .min(1, 'Must be at least 1%')
-      .max(100, 'Must be at most 100%'),
-    companyName: z.string().optional(),
+const schema = z.object({
+  employmentType: z.enum(['employed', 'self-employed', 'unemployed'], {
+    required_error: 'Please select an employment type',
   }),
-  z.object({
-    employmentType: z.literal('self-employed'),
-    companyName: z.string().min(1, 'Company name is required'),
-    employerName: z.string().optional(),
-    employmentRatio: z.coerce.number().optional(),
-  }),
-  z.object({
-    employmentType: z.literal('unemployed'),
-    employerName: z.string().optional(),
-    employmentRatio: z.coerce.number().optional(),
-    companyName: z.string().optional(),
-  }),
-])
+  employerName: z.string().optional(),
+  employmentRatio: z.coerce.number().optional(),
+  companyName: z.string().optional(),
+}).superRefine((data, ctx) => {
+  if (data.employmentType === 'employed') {
+    if (!data.employerName || data.employerName.trim() === '') {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'Employer name is required', path: ['employerName'] })
+    }
+    if (!data.employmentRatio || data.employmentRatio < 1) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'Employment ratio is required', path: ['employmentRatio'] })
+    } else if (data.employmentRatio > 100) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'Must be at most 100%', path: ['employmentRatio'] })
+    }
+  }
+  if (data.employmentType === 'self-employed') {
+    if (!data.companyName || data.companyName.trim() === '') {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'Company name is required', path: ['companyName'] })
+    }
+  }
+})
 
-type StepData = Pick<ApplicationFormData, 'employmentType' | 'employerName' | 'employmentRatio' | 'companyName'>
+type StepData = {
+  employmentType: 'employed' | 'self-employed' | 'unemployed'
+  employerName?: string
+  employmentRatio?: number
+  companyName?: string
+}
 
 const EMPLOYMENT_OPTIONS = [
   { label: 'Employed', value: 'employed' },
@@ -46,7 +52,7 @@ export default function EmploymentPage() {
   const router = useRouter()
   const { getValues, setValue } = useFormContext<ApplicationFormData>()
 
-  const { register, handleSubmit, control, formState: { errors } } = useForm<StepData>({
+  const { register, handleSubmit, control, watch, formState: { errors } } = useForm<StepData>({
     resolver: zodResolver(schema),
     defaultValues: {
       employmentType: getValues('employmentType'),
@@ -56,19 +62,20 @@ export default function EmploymentPage() {
     },
   })
 
-  const employmentType = useWatch({ control, name: 'employmentType' })
+  const employmentType = watch('employmentType')
 
   const onSubmit = (data: StepData) => {
-    Object.entries(data).forEach(([key, value]) => {
-      setValue(key as keyof StepData, value, { shouldDirty: true })
-    })
+    setValue('employmentType', data.employmentType, { shouldDirty: true })
+    setValue('employerName', data.employerName ?? '', { shouldDirty: true })
+    setValue('employmentRatio', data.employmentRatio, { shouldDirty: true })
+    setValue('companyName', data.companyName ?? '', { shouldDirty: true })
     router.push('/application/partner')
   }
 
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-900 mb-1">Employment Details</h2>
-      <p className="text-sm text-gray-500 mb-6">Tell us about your current employment status.</p>
+      <p className="text-sm text-gray-500 mb-6">What is your current employment status?</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
         <RadioButton
