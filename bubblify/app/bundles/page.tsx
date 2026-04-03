@@ -23,7 +23,7 @@ export default async function Bundles() {
     const bubbles = await getBubbles();
 
     return (
-  <main className="bg-white text-black min-h-screen p-8">
+  <main className="bg-slate-50 text-slate-900 min-h-screen p-8">
     <h1 className="text-3xl font-bold mb-8">Bundles</h1>
     <div className="flex flex-col gap-4">
       {bundles.map((bundle) => {
@@ -33,16 +33,16 @@ export default async function Bundles() {
         }, 0);
 
         return (
-          <div key={bundle.id} className="border rounded-xl p-4 flex justify-between items-center">
+          <div key={bundle.id} className="bg-white border border-slate-200 rounded-2xl p-6 flex justify-between items-center shadow-sm">
             <div>
               <p className="font-semibold text-lg">{bundle.name}</p>
               {bundle.items.map((itemId) => {
                 const bubble = bubbles.find((b) => b.id === itemId);
-                return <p key={itemId} className="text-gray-600">{bubble?.name}</p>;
+                return <p key={itemId} className="text-slate-500 text-sm">{bubble?.name}</p>;
               })}
             </div>
-            <div className="flex items-center gap-4">
-              <p className="font-semibold">{bundlePrice} kr</p>
+            <div className="flex items-center gap-6">
+              <p className="font-semibold text-indigo-600 text-lg">{bundlePrice} kr</p>
               <AddToCartButton id={bundle.id} name={bundle.name} price={bundlePrice} />
             </div>
           </div>
